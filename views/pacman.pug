@@ -41,10 +41,18 @@ html(lang='en')
               a(href='/pacman') Pacman
             li
               a(href='/database') Database
-            li#right-side-button
-              a(href='/signUp') Register
-            li#right-side-button
-              a(href='/login') Log In
+           
+            if loggedInUser
+                li#right-side-button
+                    a(href='/profile') Profile
+                li#right-side-button
+                    a(href='/signOut') Log Out
+
+            else
+                li#right-side-button
+                    a(href='/signUp') Register
+                li#right-side-button
+                    a(href='/login') Log In
 
         body.title
           form(action='', method='get')

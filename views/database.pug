@@ -22,10 +22,19 @@ html(lang='en')
             a(href='/pacman') Pacman
           li
             a(href='/database') Database
-          li#right-side-button
-            a(href='/signUp') Register
-          li#right-side-button
-            a(href='/login') Log In
+
+          if loggedInUser
+            li#right-side-button
+              a(href='/profile') Profile
+            li#right-side-button
+              a(href='/signOut') Log Out
+
+          else
+            li#right-side-button
+              a(href='/signUp') Register
+            li#right-side-button
+              a(href='/login') Log In
+
     p
     table.database(align='center')
         tr
@@ -35,20 +44,25 @@ html(lang='en')
             th AGE
             th CITY
             th COUNTRY
-            th DELETE
-            th EDIT
+            if loggedInUser
+                th DELETE
+                th EDIT
+            else
+
         for persons in population
             tr
             for person in persons
                 td #{person}
-            td.edit
-                form(method='post' action='/deleteUser')
-                    button.btn.btn-info(type='submit' name='buttonSubmit' value=persons.id onclick='return confirm ("Are you sure you want to delete this user from the database?")')
-                        i.fas.fa-trash-alt
-            td.edit
-                form(method='post' action='/editUser')
-                    button.btn.btn-info(type='submit' name='buttonSubmit' value=persons)
-                        i.fas.fa-edit
+            if loggedInUser
+                td.edit
+                    form(method='post' action='/deleteUser')
+                        button.btn.btn-info(type='submit' name='buttonSubmit' value=persons.id onclick='return confirm ("Are you sure you want to delete this user from the database?")')
+                            i.fas.fa-trash-alt
+                td.edit
+                    form(method='post' action='/editUser')
+                        button.btn.btn-info(type='submit' name='buttonSubmit' value=persons)
+                            i.fas.fa-edit
+            else                
 
     p 
     h3(align='center') Add Info to Database:
