@@ -55,6 +55,7 @@ html(lang='en')
                     a(href='/login') Log In
 
         body.title
+        .col-lg-12.col-sm-12
           form(action='', method='get')
             table.center(border='1')
               tr
@@ -69,15 +70,19 @@ html(lang='en')
                 td
                   input#yspeedval(name='yspeedval', type='text', size='2')
           
-          body.title
+        body.title
             script(type='text/javascript').
               function setup() {
               //	commands placed here are executed once
-              createCanvas(1410,480);
+              createCanvas(windowWidth, 500);
               ellipseMode(CENTER);
               angleMode(DEGREES);
               }
               
+              function windowResized() {
+              resizeCanvas(windowWidth, 500);
+              }
+
               function draw() {
               //	commands placed here are executed repeatedly
               background(150);

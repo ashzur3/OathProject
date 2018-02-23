@@ -23,16 +23,12 @@ h2.title {
   padding-bottom: .5em;
   font-weight: 900;
   font-size: 170%;
-  padding: .5em .5em .5em .5em;
-  background-color: rgb(41, 41, 41);
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
-  margin: 0em 500px;
 }
 
 h3 {
   color: aqua;
   font-family: Georgia, sans-serif;
+  text-align: center;
 }
 
 .heading {
@@ -40,7 +36,7 @@ h3 {
   color: white;
   position: static;
   background-color: rgb(41, 41, 41);
-  margin: 0em 500px;
+  margin: 0em 28pc;
 }
 
 .heading1 {
@@ -50,7 +46,7 @@ h3 {
   background-color: rgb(41, 41, 41);
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
-  margin: 0em 500px;
+  margin: 0em 28pc;
 }
 
 a:link {
@@ -77,6 +73,7 @@ li a:hover {
 
 .fancyList {
   list-style-type: circle;
+
 }
 
 #right-side-button {
@@ -166,8 +163,6 @@ th {
   font-family: Georgia, sans-serif;
 }
 
-
-
 .form input[type=submit] {
   background: linear-gradient(to right, black, rgb(200, 0, 200));
   border: none;
@@ -192,4 +187,11 @@ th {
 .trash {
   padding: 0px;
   background-color: rgb(59, 59, 59);
+}
+
+.section {
+  margin: 20px auto;
+  background-color: rgb(110, 110, 110);
+  border-radius: 10px;
+  text-align: center;
 }
