@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script type="text/javascript" src="p5.js"></script>
+    <title>Pacman</title>
+</head>
+
+<body class="title">
+    <div class="container-fluid">
+        <script type="text/javascript">
+            var diameter = 40;
+            var radius = diameter / 2;
+            var x = radius;
+            var y = radius;
+            var xSpeed = 5;
+            var ySpeed = 5;
+            var xDirection = 1;
+            var yDirection = 1;
+            var numObjs = 1;
+            var pacred = 55;
+            var pacgreen = 0;
+            var pacblue = 60;
+
+            function init() {
+                document.getElementById("xspeedval").value = document.getElementById("xspeed").value;
+                document.getElementById("yspeedval").value = document.getElementById("yspeed").value;
+            }
+
+            function update() {
+                document.getElementById("xspeedval").value = document.getElementById("xspeed").value;
+                document.getElementById("yspeedval").value = document.getElementById("yspeed").value;
+            }
+        </script>
+
+        <body class="title" onload="init()">
+            <h1 class="title">Adjust X and Y sliders to change the speed</h1>
+            <div class="col-lg-12 col-sm-12">
+                <ul class="bar">
+                    <li><a href="options.html">Go Back</a></li>
+                </ul>
+            </div>
+
+            <body class="title"></body>
+            <div class="row"></div>
+            <div class="col-lg-12 col-sm-12">
+                <form action="" method="get">
+                    <table class="center" border="1">
+                        <tr>
+                            <td>X speed</td>
+                            <td><input id="xspeed" type="range" min="0" max="20" step="1" onchange="update ()"></td>
+                            <td><input id="xspeedval" name="xspeedval" type="text" size="2"></td>
+                            <td>Y speed</td>
+                            <td><input id="yspeed" type="range" min="0" max="20" step="1" onchange="update ()"></td>
+                            <td><input id="yspeedval" name="yspeedval" type="text" size="2"></td>
+                        </tr>
+                    </table>
+                </form>
+            </div>
+
+            <body class="title">
+                <script type="text/javascript">
+                    function setup() {
+                        //	commands placed here are executed once
+                        createCanvas(windowWidth, 500);
+                        ellipseMode(CENTER);
+                        angleMode(DEGREES);
+                    }
+
+                    function windowResized() {
+                        resizeCanvas(windowWidth, 500);
+                    }
+
+                    function draw() {
+                        //	commands placed here are executed repeatedly
+                        background(150);
+                        for (c = 0; c < numObjs; ++c) {
+                            fill(pacred, pacgreen, pacblue);
+
+                            x += document.getElementById("xspeed").value * xDirection; //increase value of x
+                            y += document.getElementById("yspeed").value * yDirection; //increase value of y
+
+                            pacred = Math.floor(255 * Math.random());
+                            pacgreen = Math.floor(255 * Math.random());
+                            pacblue = Math.floor(255 * Math.random());
+
+                            if ((x > width - radius) || x < radius)
+                                xDirection = -xDirection;
+                            if ((y > height - radius) || y < radius)
+                                yDirection = -yDirection;
+                            if (xDirection == 1)
+                                arc(x, y, diameter, diameter, 30, 330);
+                            else
+                                arc(x, y, diameter, diameter, 210, 150);
+                        }
+                    }
+                </script>
+            </body>
+        </body>
+    </div>
+</body>
